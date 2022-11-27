@@ -8,12 +8,12 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Spinner;
 
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class MainActivity2 extends AppCompatActivity {
     private TextInputLayout tilFiltrar;
@@ -54,16 +54,18 @@ public class MainActivity2 extends AppCompatActivity {
     }
     private void obtenerDatos(){
         int min = 1;
-        int max = 10;
-        Random random = new Random();
-        int random = Math.floor(Math.random()*(max-min+1)+min);
+        int max = 100;
+        int randomNum = ThreadLocalRandom.current().nextInt(min, max + 1);
+
+
         String recibirTitulo = getIntent().getExtras().getString("sendTitulo");
         String recibirdescripcion = getIntent().getExtras().getString("sendDescripcion");
-        Tarea t = new Tarea(
+
+        Tarea t = new Tarea();
+        t.setId(randomNum);
         t.setTitulo(recibirTitulo);
         t.setDescripcion(recibirdescripcion);
         tareaLista.add(t);
-
-
+        Log.d("TAG_",tareaLista.toString());
     }
 }

@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 enviarDatos();
+                Log.d("TAG_",listaTarea.toString());
             }
         });}
 
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
             sendDatos.putExtra("sendTitulo",titulo);
             sendDatos.putExtra("sendDescripcion",descripcion);
             startActivity(sendDatos);
+
         }
 
 
