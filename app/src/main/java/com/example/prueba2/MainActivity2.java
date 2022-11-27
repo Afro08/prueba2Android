@@ -53,10 +53,13 @@ public class MainActivity2 extends AppCompatActivity {
         });
     }
     private void obtenerDatos(){
-
+        int min = 1;
+        int max = 10;
+        Random random = new Random();
+        int random = Math.floor(Math.random()*(max-min+1)+min);
         String recibirTitulo = getIntent().getExtras().getString("sendTitulo");
         String recibirdescripcion = getIntent().getExtras().getString("sendDescripcion");
-        Tarea t = new Tarea();
+        Tarea t = new Tarea(
         t.setTitulo(recibirTitulo);
         t.setDescripcion(recibirdescripcion);
         tareaLista.add(t);
